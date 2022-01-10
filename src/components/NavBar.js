@@ -9,7 +9,7 @@ const NavBar = () => {
           <nav className="flex">
             <NavLink
               to="/"
-              className="inline-flex items-center py-6 px-3 mr-4 text-red-100 hover:text-green-800 text-4xl font-bold rock3D tracking-widest"
+              className="inline-flex items-center py-6 px-3 mr-4 text-red-100 hover:text-green-800 text-4xl font-bold architects tracking-widest"
             >
               Home
             </NavLink>
