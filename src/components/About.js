@@ -20,7 +20,7 @@ export const About = () => {
       "authorImage": image.asset->url
     }`
       )
-      .then((data) => setAuthor(data[0]))
+      .then((data) => setAuthor(data))
       .catch(console.error);
   }, []);
 
@@ -34,31 +34,33 @@ export const About = () => {
           alt="path in the woods"
           className="absolute w-full"
         />
-        <div className="p-10 lg:pt-48 container mx-auto relative">
-          <section
-            className=" rounded-lg shadow-2xl lg:flex p-20"
-            style={{ backgroundColor: "rgb(236 252 203)" }}
-          >
-            <img
-              src={urlFor(author.authorImage).url()}
-              className="rounded w-auto h-32 lg:w-auto lg:h-64 mr-8"
-              alt={author.name}
-            />
-            <div className="text-lg flex flex-col justify-center">
-              <h1 className="architects text-6xl text-gray-500 mb-4">
-                Hey there, I'm{" "}
-                <span className="text-gray-700">{author.name}</span>
-              </h1>
-              <div className="prose lg:prose-xl text-gray-700">
-                <BlockContent
-                  blocks={author.bio}
-                  projectId="om5lc0pj"
-                  dataset="production"
-                />
+        {author.map((auth, index) => (
+          <div className="p-10 lg:pt-48 container mx-auto relative">
+            <section
+              className=" rounded-lg shadow-2xl lg:flex p-20"
+              style={{ backgroundColor: "rgb(236 252 203)" }}
+            >
+              <img
+                src={urlFor(auth.authorImage).url()}
+                className="rounded w-auto h-32 lg:w-auto lg:h-64 mr-8"
+                alt={author.name}
+              />
+              <div className="text-lg flex flex-col justify-center">
+                <h1 className="architects text-6xl text-gray-500 mb-4">
+                  Hey there, I'm{" "}
+                  <span className="text-gray-700">{auth.name}</span>
+                </h1>
+                <div className="prose lg:prose-xl text-gray-700">
+                  <BlockContent
+                    blocks={auth.bio}
+                    projectId="om5lc0pj"
+                    dataset="production"
+                  />
+                </div>
               </div>
-            </div>
-          </section>
-        </div>
+            </section>
+          </div>
+        ))}
       </main>
     </div>
   );
