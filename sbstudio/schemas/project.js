@@ -11,5 +11,9 @@ export default {
       name: "description",
       type: "text",
     },
+    {
+      name: "link",
+      type: "url",
+    },
   ],
 };
